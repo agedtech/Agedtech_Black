@@ -32,5 +32,4 @@ urlpatterns = [
 
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-    path('update_server/', views.update, name = 'update'),
 ]
