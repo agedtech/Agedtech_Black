@@ -47,17 +47,7 @@ class LoginView(APIView):
     def get(self, request):
             return render(request, "login.html", {})
 
-@csrf_exempt
-def update(request):
-    if request.method == "POST":
-        repo = git.repo("agedtech.pythonanywhere.com/")
-        origin = repo.remote.origin
-        origin.pull()
-        return HttpResponse("Update code on Pythonanywhere")
-    else:
-        return HttpResponse("Couldn't update the code on PYthonanywhere")
-        
-        
+                
 @login_required()
 def dashboard(request):
     template_name = 'dashboard.html'
