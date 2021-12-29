@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import git
+#import git
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_user
 from django.views.decorators.csrf import csrf_exempt
