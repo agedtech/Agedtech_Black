@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'info',
     'dashboard',
 
-    'cloudinary_storage',
+    #'cloudinary_storage',
     'cloudinary',
 
     'ckeditor',
