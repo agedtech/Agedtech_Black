@@ -50,7 +50,7 @@ class LoginView(APIView):
 @csrf_exempt
 def update(request):
     if request.method == "POST":
-        repo = git.repo("test.pythonanywhere.com/")
+        repo = git.repo("agedtech.pythonanywhere.com/")
         origin = repo.remote.origin
         origin.pull()
         return HttpResponse("Update code on Pythonanywhere")
