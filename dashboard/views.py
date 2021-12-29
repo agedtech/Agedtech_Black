@@ -3,9 +3,10 @@ from django.http import JsonResponse
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+import git
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_user
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.views import APIView
 from rest_framework import authentication, permissions
@@ -46,7 +47,17 @@ class LoginView(APIView):
     def get(self, request):
             return render(request, "login.html", {})
 
-
+@csrf_exempt
+def update(request):
+    if request.method == "POST":
+        repo = git.repo("test.pythonanywhere.com/")
+        origin = repo.remote.origin
+        origin.pull()
+        return HttpResponse("Update code on Pythonanywhere")
+    else:
+        return HttpResponse("Couldn't update the code on PYthonanywhere")
+        
+        
 @login_required()
 def dashboard(request):
     template_name = 'dashboard.html'
